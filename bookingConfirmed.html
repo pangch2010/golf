@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Golf Club Mobile App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery and jQuery Mobile -->
+    <script src="lib/jquery-2.0.2.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+    <link rel="stylesheet" href="css/GolfTheme.min.css" />
+
+    <!-- Golf style and jQuery -->
+    <link rel="stylesheet" href="css/golfStyle.css">
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <div data-role="content">
+            <script src="js/main.js"></script>
+            <script src="js/bookingConfirmed.js"></script>
+            <a data-role="button" href="booking_menu.html" data-icon="back" class="btnLeft ui-btn-left" data-transition="slide" data-theme="c" data-direction="reverse">back</a>
+
+            <br />
+            <br />
+
+            <ul data-role="listview" data-theme="d" data-inset="true">
+                <li data-theme="c" class="center">
+                    <label>Booking Confirmed</label>
+                </li>
+                <li data-theme="a" class="center">
+                    <div class="ui-grid-solo">
+                        <h1 id="bookedClub"></h1>
+                    </div>
+
+
+                    <table align="center">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <img src="images/course2.png" class="dialogLogo" /><br />
+                                </th>
+                                <th>
+                                    <id id="bookedCourse" class="btnLeft"></id>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <th>
+                                    <img src="images/date2.png" class="dialogLogo" /><br />
+                                </th>
+                                <th class="btnLeft">
+                                    <id id="bookedDate" class="btnLeft"></id>
+                                </th>
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <th>
+                                    <img src="images/time.png" class="dialogLogo" /><br />
+                                </th>
+                                <th>
+                                    <id id="bookedTime" class="btnLeft"></id>
+                                </th>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </li>
+                <a data-role="button" class="btnClick" href="#popup_Delete" data-transition="flip" data-rel="popup" data-theme="e">Cancel Booking
+                </a>
+
+            </ul>
+        </div>
+        <!-- portBox Content -->
+        <div id="popup_Delete" data-role="popup" data-theme="a" data-overlay-theme="a" class="ui-content" data-position-to="window">
+
+            <div data-role="content">
+
+                <h3 data-them="r">Booking Cancellation</h3>
+
+                <p class="center">Are you sure you want to cancel the booking ?</p>
+
+                <br />
+
+                <a data-role="button" href="booking.html" data-mini="true" data-transition="flow" data-theme="r">YES
+                </a>
+                <a data-role="button" href="bookingConfirmed.html" data-mini="true" data-transition="fade">NO
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

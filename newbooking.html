@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Golf Club Mobile App</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery and jQuery Mobile -->
+    <script src="lib/jquery-2.0.2.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+    <link rel="stylesheet" href="css/GolfTheme.min.css" />
+
+    <!-- Golf style and jQuery -->
+    <link rel="stylesheet" href="css/golfStyle.css">
+</head>
+<body>
+    <div data-role="page" id="page1">
+
+
+        <div data-role="content">
+            <script src="js/main.js"></script>
+            <script src="js/newbooking.js"></script>
+
+            <a data-role="button" href="booking_menu.html" data-icon="grid" class="btnLeft ui-btn-left" data-transition="slide" data-theme="c" data-direction="reverse">Menu</a>
+
+            <br />
+            <br />
+
+            <button data-theme="a">KLGCC</button>
+
+            <select id="dropDate" data-native-menu="false">
+            </select>
+
+            <div class="ui-grid-solo">
+                <fieldset data-role="controlgroup" data-type="horizontal" class="center">
+                    <input type="radio" name="radio-time" id="radio-mini-1" value="AM" checked="checked" />
+                    <label for="radio-mini-1">Morning</label>
+                    <input type="radio" name="radio-time" id="radio-mini-2" value="PM" />
+                    <label for="radio-mini-2">Afternoon</label>
+                    <input type="radio" name="radio-time" id="radio-mini-3" value="NIGHT" />
+                    <label for="radio-mini-3">Night</label>
+                </fieldset>
+            </div>
+
+            <div class="ui-grid-solo">
+                <!-- <select name="flip-1" id="flip-1" data-role="slider" data-mini="true" class="center">
+                        <option value="9">9 hole</option>
+                        <option value="18" selected="selected">18 hole</option>
+                    </select>-->
+                <fieldset data-role="controlgroup" data-type="horizontal" class="center">
+                    <input type="radio" name="radio-hole" id="radio1" value="18" checked="checked" />
+                    <label for="radio1">18 Hole</label>
+
+                    <input type="radio" name="radio-hole" id="radio2" value="9" />
+                    <label for="radio2">9 Hole</label>
+                </fieldset>
+            </div>
+
+            <div class="ui-grid-solo">
+                <select data-native-menu="false" id="dropCourse">
+                </select>
+            </div>
+
+            <br />
+
+            <button id="btnSearch" data-role="button" data-transition="flip" data-rel="popup" data-theme="e">Search</button>
+
+            <div id="flightTitle" class="center"></div>
+            <div class="ui-grid-solo center" id="listFlight" data-theme="d">
+            </div>
+            <br />
+            <br />
+        </div>
+
+        <!-- portBox Content -->
+        <div data-role="popup" id="popup_Booking" data-position-to="window" data-theme="a" data-overlay-theme="b">
+
+
+            <ul data-role="listview" data-theme="a" data-inset="true">
+                <li data-theme="c" class="center">
+                    <id id="Inside-Club">KLGCC</id>
+                </li>
+                <li class="center">
+                    <table align="center">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <img src="images/course2.png" class="dialogLogo" /><br />
+                                </th>
+                                <th>
+                                    <id id="Inside-Course"></id>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <id id="Inside-Hole"></id>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <img src="images/date2.png" class="dialogLogo" /><br />
+                                </th>
+                                <th>
+                                    <id id="Inside-DateTime"></id>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <img src="images/time.png" class="dialogLogo" /><br />
+                                </th>
+                                <th>
+                                    <id id="Inside-Time"></id>
+                                </th>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <br>
+
+                    <div>
+                        <!--href="bookingConfirmed.html" -->
+                        <a id="SubmitBooking" data-role="button" data-mini="true" data-transition="flow" data-theme="c">OK
+                        </a>
+                        <a data-role="button" href="newbooking.html" data-mini="true" data-transition="fade" data-theme="d">Cancel
+                        </a>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
