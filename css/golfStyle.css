@@ -37,6 +37,10 @@ label {
     text-align: center;
 }
 
+
+#popup_Listview {
+    width: 80%;
+}
 /*.logo {
     width: 20%;
     height: 10%;
