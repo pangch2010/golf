@@ -4,6 +4,7 @@ var date;
 var time;
 var hole;
 
+
 function GenerateDateDropDownList() {
     var nowDate;
     
@@ -31,7 +32,7 @@ function GenerateDateDropDownList() {
     monthName[10] = "November";
     monthName[11] = "December";
 
-    $("#dropDate").html("<option value='0'>-- Please Select a Date -- </option>");
+    $("#dropDate").html("<option Date='0'>-- Please Select a Date -- </option>");
     if (defaultDate_Test != "") {
         nowDate = new Date(defaultDate_Test);
     }
@@ -48,8 +49,9 @@ function GenerateDateDropDownList() {
         month[i] = monthName[displayDate.getMonth()];
 
         var date = displayDate.getFullYear() + "-" + (displayDate.getMonth() + 1) + "-" + displayDate.getDate();
+        var DropdownlistDate = displayDate.getDate() + "/" + (displayDate.getMonth() + 1) + "/" + displayDate.getFullYear() + " " + weekday[displayDate.getDay()];
          
-        $("#dropDate").append("<option value=" + date + ">" + date + "</option>");
+        $("#dropDate").append("<option Date=" + date + ">" + DropdownlistDate + "</option>");
     }
     $('#dropDate').selectmenu('refresh', true);
 
@@ -100,8 +102,9 @@ $(document).on('pagebeforeshow', function () {
             }
         });
     });
+
     $(document).off('click', '#btnSearch').on('click', '#btnSearch', function (e) {
-        date = $('#dropDate :selected').attr("value");
+        date = $('#dropDate :selected').attr("date");
         course = $('#dropCourse :selected').attr("value");
         ClientcourseID = $('#dropCourse :selected').attr("ClientID");
         time = $("input[name='radio-time']:checked").val();
@@ -124,21 +127,24 @@ $(document).on('pagebeforeshow', function () {
             success: function (result) {
                 $("#listFlight").html("");
                 $.each(result, function (index, element) {
-                    $("#listFlight").append("<button class=" + 'btnFlight' + " data-role=" + 'button' + " data-theme=" + 'c' + " data-corners=" + 'false' + " data-mini=" + 'true' + " data-inline=" + 'true' + " value=" + element + ">" + element + "</button>").trigger("create");
+                    var time = element;
+                    var res = time.split(" ");
+                    $("#listFlight").append("<button class=" + 'btnFlight' + " data-role=" + 'button' + " data-theme=" + 'c' + " data-corners=" + 'false' + " data-mini=" + 'true' + " data-inline=" + 'true' + " value =" + res + " time =" + res + ">" + time + "</button>").trigger("create");
                 });
                 $("#listFlight").append("<br/><br/>").children().last().trigger("create");
+               
             },
             error: function () {
                 alert("Error On get Data From Server");
             }
         });
-       }
+        }
     });
 
     $(document).off('click', '.btnFlight').on('click', '.btnFlight', function (e) {
-        value = $(this).attr("value");
+        value = $(this).attr("time");
         course = $('#dropCourse :selected').text();
-        date = $('#dropDate :selected').text();
+        date = $('#dropDate :selected').attr("date");
         time = $("input[name='radio-time']:checked").attr("value");
         hole = $("input[name='radio-hole']:checked").attr("value");
 
