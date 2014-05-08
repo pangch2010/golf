@@ -38,8 +38,8 @@ label {
 }
 
 
-#popup_Listview {
-    width: 80%;
+.ui-popup-container {
+    width:80%
 }
 /*.logo {
     width: 20%;
