@@ -4,7 +4,7 @@ var URL_API = "http://175.139.183.94:76/GolfAPI";
 var SERVER_END_POINT_API = "http://175.139.183.94:76/GolfAPI/";
 
 
-var defaultDate_Test = "2008-08-17";
+var defaultDate_Test = "";
 
 function showLoading() {
     $.mobile.loading("show", {

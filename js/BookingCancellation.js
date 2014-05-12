@@ -1,6 +1,7 @@
 ﻿var clubMemberID;
+var membershipNo;
 
-function loadBooking(clubMemberID) {
+function loadBooking(membershipNo) {
     var htmlString = "";
 
     $.ajax({        
@@ -8,14 +9,14 @@ function loadBooking(clubMemberID) {
         type: 'GET',
         dataType: 'json',
         data: {
-            MemberID: clubMemberID
+            MembershipNo: membershipNo
         },
         success: function (result) {
             if (result != null && result != "") {
                 $.each(result, function (index, element) {
                     htmlString = htmlString + "<ul class=\"menu\"><li class=\"item1\">" +
                                 "<ul>" +
-                                    "<li data-theme=\"d\" class=\"center\"><a data-role=\"button\" data-icon=\"delete\" data-theme=\"e\" class=\"btnRight ui-btn-right-cancel ui-link ui-btn ui-btn-e ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all btnCancelBooking\" confirmID=\"" + element.ComfirmationID + "\" membershipNo=\"" + element.MembershipNo + "\" bookingID=\"" + element.BookingID + "\" >Cancel</a>" +
+                                    "<li data-theme=\"d\" class=\"center\"><a data-role=\"button\" data-icon=\"delete\" data-theme=\"e\" class=\"btnRight ui-btn-right-cancel ui-link ui-btn ui-btn-e ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all btnCancelBooking\" confirmID=\"" + element.ConfirmationID + "\" courseID=\"" + element.CourseID + "\" flightDateTime=\"" + element.FlightDateTime + "\" noOfHoles=\"" + element.NoOfHoles + "\" >Cancel</a>" +
                                         "<div class=\"ui-grid-solo\">" +
                                             "<h1>KLGCC</h1>" +
                                         "</div>" +
@@ -75,16 +76,20 @@ $(document).one("pagebeforeshow", function () {
     if (localStorage.getItem("ClubMemberID") != null) {
         clubMemberID = localStorage.getItem("ClubMemberID");
     }
-    loadBooking(clubMemberID);
+    if (localStorage.getItem("MembershipNo") != null) {
+        membershipNo = localStorage.getItem("MembershipNo");
+    }
+    loadBooking(membershipNo);
 
     $(document).off('click', '.btnCancelBooking').on('click', '.btnCancelBooking', function (e) {
-        var confirmationID = $(this).attr("confirmID");
-        var clubMemberNo = $(this).attr("membershipNo");
-        var bookingID = $(this).attr("bookingID");
-        submitCancel(clubMemberNo, confirmationID, bookingID);
+        var confirmationID = $(this).attr("confirmID");        
+        var courseID = $(this).attr("courseID");
+        var flightDateTime = $(this).attr("flightDateTime");
+        var noOfHoles = $(this).attr("noOfHoles");
+        submitCancel(membershipNo, confirmationID, clubMemberID, courseID, flightDateTime, noOfHoles);
     });
 });
-function submitCancel(membershipno, confirmationid, bookingid) {    
+function submitCancel(membershipno, confirmationid, clubMemberID, courseID, flightDateTime, noOfHoles) {    
     $.ajax({
         url: SERVER_END_POINT_API + '/api/Booking/CancelBooking',
         type: 'GET',
@@ -92,13 +97,16 @@ function submitCancel(membershipno, confirmationid, bookingid) {
         data: {
             MembershipNo: membershipno,
             ConfirmationID: confirmationid,
-            BookingID: bookingid,
+            ClubMemberID: clubMemberID,
+            CourseID: courseID,
+            FlightDateTime: flightDateTime,
+            NoOfHoles: noOfHoles,
         },
         success: function (result) {
             if (result != null) {
                 if (result == "ok") {
                     alert("Cancel Success");
-                    loadBooking(clubMemberID);
+                    loadBooking(membershipNo);
                 } else {
                     alert("fail to cancel");
                 }

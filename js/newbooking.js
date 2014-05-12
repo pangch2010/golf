@@ -145,12 +145,14 @@ $(document).on('pagebeforeshow', function () {
         value = $(this).attr("time");
         course = $('#dropCourse :selected').text();
         date = $('#dropDate :selected').attr("date");
+        var datedisplayed = $('#dropDate :selected').text();
         time = $("input[name='radio-time']:checked").attr("value");
         hole = $("input[name='radio-hole']:checked").attr("value");
 
+        var timeDisplay = value.split(",");
         $("#Inside-Course").html(course);
-        $("#Inside-DateTime").html(date);
-        $("#Inside-Time").html(value + " [ " + time + " ]");
+        $("#Inside-DateTime").html(datedisplayed);
+        $("#Inside-Time").html(timeDisplay[0] + " [ " + time + " ]");
         $("#Inside-Hole").html("[ " + hole + " ]");
         $("#popup_Booking").popup("open");
     });

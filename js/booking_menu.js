@@ -1,21 +1,21 @@
-﻿$(document).one('pageinit', function () {
-    var db = window.openDatabase("golfDB", "1.0", "Golf Database", 1000000);
+﻿var db = window.openDatabase("golfDB", "1.0", "Golf Database", 1000000);
+$(document).on('pageinit', function () {
     $(document).one('click', '#logout', function (e) {
         db.transaction(
                              function (tx) {
                                  var sql = 'UPDATE GolfDetail set RecordStatus="InActive" where UserName="' + localStorage.getItem("UserName") + '" ';
                                  tx.executeSql(sql);
+                                 alert(sql);
+                                 localStorage.clear();
+                                 window.location.href = "index.html";
                              }, function (err) {
                              },
                          function (err) {
                          }
                       );
-
-        localStorage.clear();
-        window.location.href = "index.html";
     });
 
-    if (localStorage.getItem("UserName") == undefined && localStorage.getItem("Token") == undefined) {
+    if (localStorage.getItem("UserName") == null && localStorage.getItem("Token") == null) {
         var success = false;
         db.transaction(
                 function (tx) {
@@ -36,10 +36,11 @@
                             success = true;
                         }
                     }, function (err) {
-
+                        alert(err);
                     });
                 },
                 function (err) {
+                    alert(err);
                 },
                 function (err) {
                     if (success == false) {

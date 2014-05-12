@@ -34,8 +34,22 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        //var pushNotification = window.plugins.pushNotification;
+        //pushNotification.register(app.successHandler, app.errorHandler, { "senderID": "235285295508", "ecb": "app.onNotificationGCM" });
         var pushNotification = window.plugins.pushNotification;
-        pushNotification.register(app.successHandler, app.errorHandler, { "senderID": "235285295508", "ecb": "app.onNotificationGCM" });
+        var iOS = false,
+        p = navigator.platform;
+
+        if (p === 'iPad' || p === 'iPhone' || p === 'iPod') {
+            iOS = true;
+        }
+        if (iOS) {
+            pushNotification.register(app.tokenHandler, app.errorHandler, { "badge": "true", "sound": "true", "alert": "true", "ecb": "app.onNotificationAPN" });
+        }
+        else {
+            pushNotification.register(app.successHandler, app.errorHandler, { "senderID": "235285295508", "ecb": "app.onNotificationGCM" });
+
+        }
 
     },
     // Update DOM on a Received Event
@@ -48,13 +62,38 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         //console.log('Received Event: ' + id);
+
     },
     // result contains any message sent from the plugin call
+    tokenHandler: function (result) {
+        localStorage.setItem("DeviceKey", result);
+        alert('Callback Success! Result = '+result)
+
+    },
     successHandler: function(result) {
         //alert('Callback Success! Result = '+result)
     },
     errorHandler:function(error) {
         alert(error);
+    },
+    // iOS
+    onNotificationAPN: function (event) {
+        var pushNotification = window.plugins.pushNotification;
+        console.log("Received a notification! " + event.alert);
+        console.log("event sound " + event.sound);
+        console.log("event badge " + event.badge);
+        console.log("event " + event);
+        if (event.alert) {
+            navigator.notification.alert(event.alert);
+        }
+        if (event.badge) {
+            console.log("Set badge on  " + pushNotification);
+            pushNotification.setApplicationIconBadgeNumber(app.successHandler, event.badge);
+        }
+        if (event.sound) {
+            var snd = new Media(event.sound);
+            snd.play();
+        }
     },
     onNotificationGCM: function(e) {
         switch( e.event )
@@ -62,7 +101,8 @@ var app = {
             case 'registered':
                 if ( e.regid.length > 0 )
                 {                  
-                    localStorage.setItem("DeviceKey", e.regid);                    
+                    localStorage.setItem("DeviceKey", e.regid);
+                    alert('devicekey=' + e.regid);
                 }
                 break;
 

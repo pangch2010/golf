@@ -35,7 +35,13 @@
 
   <!-- retina iPad support: PhoneGap 2.5.0+ only -->
   <icon src="images/icon/ios/icon-72@2x.png" gap:platform="ios" width="144" height="144" />
+
+
+  <!-- Plug ins -->
   <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.1" />
-  
+
   <access origin="*" />
+  
+  
+  
 </widget>
