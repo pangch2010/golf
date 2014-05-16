@@ -1,10 +1,14 @@
 ﻿var clubMemberID;
 var membershipNo;
+var confirmationID;
+var courseID;
+var flightDateTime;
+var noOfHoles;
 
 function loadBooking(membershipNo) {
     var htmlString = "";
 
-    $.ajax({        
+    $.ajax({
         url: SERVER_END_POINT_API + '/api/Booking/GetByMemberID?',
         type: 'GET',
         dataType: 'json',
@@ -14,52 +18,22 @@ function loadBooking(membershipNo) {
         success: function (result) {
             if (result != null && result != "") {
                 $.each(result, function (index, element) {
-                    htmlString = htmlString + "<ul class=\"menu\"><li class=\"item1\">" +
-                                "<ul>" +
-                                    "<li data-theme=\"d\" class=\"center\"><a data-role=\"button\" data-icon=\"delete\" data-theme=\"e\" class=\"btnRight ui-btn-right-cancel ui-link ui-btn ui-btn-e ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all btnCancelBooking\" confirmID=\"" + element.ConfirmationID + "\" courseID=\"" + element.CourseID + "\" flightDateTime=\"" + element.FlightDateTime + "\" noOfHoles=\"" + element.NoOfHoles + "\" >Cancel</a>" +
-                                        "<div class=\"ui-grid-solo\">" +
-                                            "<h1>KLGCC</h1>" +
-                                        "</div>" +
-                                        "<table align=\"center\">" +
-                                "<tbody><tr>" +
-                                    "<th>" +
-                                    "<img src=\"images/course2.png\" class=\"dialogLogo\" /><br />" +
-                                    "</th>" +
-                                    "<th>" +
-                                        "<id class=btnLeft>" + element.CourseName + "</id>" +
-                                    "</th>" +
-                                "</tr>" +
-                                "<tr></tr>" +
-                                "<tr>" +
-                                    "<th>" +
-                                        "<img src=\"images/date2.png\" class=\"dialogLogo\" /><br />" +
-                                    "</th>" +
-                                    "<th class=\"btnLeft\">" +
-                                        "<id class=\"btnLeft\">" + element.FlightDate + "</id> " +
-                                    "</th>" +
-                                "</tr>" +
-                                "<tr></tr>" +
-                                "<tr>" +
-                                    "<th>" +
-                                        "<img src=\"images/time.png\" class=\"dialogLogo\" /><br />" +
-                                    "</th>" +
-                                    "<th>" +
-                                        "<id class=\"btnLeft\">" + element.FlightTime + "</id>" +
-                                    "</th>" +
-                                "</tr>" +
-                                "<tr></tr>" +
-                                 "<tr>" +
-                                    "<th>" +
-                                        "<img src=\"images/course2.png\" class=\"dialogLogo\" /><br />" +
-                                    "</th>" +
-                                    "<th>" +
-                                        "<id class=\"btnLeft\">" + element.NoOfHoles + " Holes</id>" +
-                                    "</th>" +
-                                "</tr>" +
-                            "</tbody></table></li></ul></li></ul><li style=\"background: url('/" + location.pathname.split("/")[1] + "/images/repeat-bg.jpg') \" />"
+
+                    htmlString = htmlString + "<ul data-role=\"listview\" data-inset=\"true\">" +
+                    "<li data-role=\"list-divider\" data-theme=\"b\">" +
+                        "<label>Booking ID:" + element.ConfirmationID + "<img src=\"images/cross.png\" class=\"deleteIcon btnCancelBooking\" confirmid=\"" + element.ConfirmationID + "\" courseid=\"" + element.CourseID + "\" flightdatetime=\"" + element.FlightDateTime + "\" noofholes=\"" + element.NoOfHoles + "\" /></label></li> " +
+                    "<li data-theme=\"d\"><div class=\"ui-grid-b center\"><br />" +
+                            "<div class=\"ui-block-a\"><img src=\"images/date.png\" class=\"cancellationIcon\" /></div>" +
+                            "<div class=\"ui-block-b\"><img src=\"images/time.png\" class=\"cancellationIcon\" /></div>" +
+                            "<div class=\"ui-block-c\"><img src=\"images/hole.png\" class=\"cancellationIcon\" /></div>" +
+                            "<div class=\"ui-block-a\"><id>" + element.FlightDate + "</id></div>" +
+                            "<div class=\"ui-block-b\"><id>" + element.FlightTime + "</id></div>" +
+                            "<div class=\"ui-block-c\"><id>" + element.NoOfHoles + " Holes</id></div></div><br /></li>" +
+                    "<li data-role=\"list-divider\" data-theme=\"b\">" +
+                        "<label>" + element.CourseName + "</label></li></ul>"
                 });
                 $("#wrapper").html("");
-                $("#wrapper").append(htmlString);
+                $("#wrapper").append(htmlString).trigger("create");
             } else {
                 htmlString = htmlString + "<h1>You have no upcoming booking.</h1>"
                 $("#wrapper").html("");
@@ -82,14 +56,18 @@ $(document).one("pagebeforeshow", function () {
     loadBooking(membershipNo);
 
     $(document).off('click', '.btnCancelBooking').on('click', '.btnCancelBooking', function (e) {
-        var confirmationID = $(this).attr("confirmID");        
-        var courseID = $(this).attr("courseID");
-        var flightDateTime = $(this).attr("flightDateTime");
-        var noOfHoles = $(this).attr("noOfHoles");
+        confirmationID = $(this).attr("confirmid");
+        courseID = $(this).attr("courseid");
+        flightDateTime = $(this).attr("flightdatetime");
+        noOfHoles = $(this).attr("noofholes");
+        $("#popupDialog").popup("open");
+    });
+
+    $(document).off('click', '#cancelBooking').on('click', '#cancelBooking', function (e) {
         submitCancel(membershipNo, confirmationID, clubMemberID, courseID, flightDateTime, noOfHoles);
     });
 });
-function submitCancel(membershipno, confirmationid, clubMemberID, courseID, flightDateTime, noOfHoles) {    
+function submitCancel(membershipno, confirmationid, clubMemberID, courseID, flightDateTime, noOfHoles) {
     $.ajax({
         url: SERVER_END_POINT_API + '/api/Booking/CancelBooking',
         type: 'GET',

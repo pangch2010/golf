@@ -14,7 +14,11 @@
     <!-- Golf style and jQuery -->
     <link rel="stylesheet" href="css/golfStyle.css">
     <script type="text/javascript" src="js/index.js"></script>
-
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/PushNotification.js"></script>
+    <script type="text/javascript">
+            app.initialize();
+    </script>
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
@@ -191,7 +195,7 @@
         function authenticate(msg) {
 
             var IsAuthenticated = false;
-            alert(msg.access_token);
+            //alert(msg.access_token);
             var token = {
                 DeviceKey: getDeviceID(),
                 Token: msg.access_token,

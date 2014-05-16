@@ -67,7 +67,7 @@ var app = {
     // result contains any message sent from the plugin call
     tokenHandler: function (result) {
         localStorage.setItem("DeviceKey", result);
-        alert('Callback Success! Result = '+result)
+        //alert('Callback Success! Result = '+result)
 
     },
     successHandler: function(result) {
@@ -102,7 +102,7 @@ var app = {
                 if ( e.regid.length > 0 )
                 {                  
                     localStorage.setItem("DeviceKey", e.regid);
-                    alert('devicekey=' + e.regid);
+                    //alert('devicekey=' + e.regid);
                 }
                 break;
 

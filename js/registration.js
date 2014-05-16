@@ -40,7 +40,6 @@
            .done(function (data) {
                var ActivationData = data.split("|");
 
-               alert(ActivationData[0] + " : " + ActivationData[1] + " : " + ActivationData[2]);
 
                localStorage.setItem("aToken", ActivationData[0]);
                localStorage.setItem("regid", ActivationData[1]);
@@ -48,29 +47,29 @@
 
                window.location.href = "activation.html";
            }).fail(function (jqXHR, exception) {
-               if (jqXHR.status === 0) {
-                   alert('Not connect.\n Verify Network.');
-               } else if (jqXHR.status == 404) {
-                   alert('Requested page not found. [404]');
+               //if (jqXHR.status === 0) {
+               //    alert('Not connect.\n Verify Network.');
+               //} else if (jqXHR.status == 404) {
+               //    alert('Requested page not found. [404]');
 
-               } else if (jqXHR.status == 500) {
-                   alert('Internal Server Error [500].');
-               } else if (exception === 'parsererror') {
-                   alert('Requested JSON parse failed.');
-               } else if (exception === 'timeout') {
-                   alert('Time out error.');
-               } else if (exception === 'abort') {
-                   alert('Ajax request aborted.');
-               } else {
-                   alert('Uncaught Error.\n' + jqXHR.responseText);
-
-               }
+               //} else if (jqXHR.status == 500) {
+               //    alert('Internal Server Error [500].');
+               //} else if (exception === 'parsererror') {
+               //    alert('Requested JSON parse failed.');
+               //} else if (exception === 'timeout') {
+               //    alert('Time out error.');
+               //} else if (exception === 'abort') {
+               //    alert('Ajax request aborted.');
+               //} else {
+               //    alert('Uncaught Error.\n' + jqXHR.responseText);
+               //}
+               alert("Please key in a valid membership no. to register.")
            }
 
            );
         }
         else {
-            alert("Please enter the Membership No.");
+            alert("Key in a valid membership no. to register.");
 
         }
         });

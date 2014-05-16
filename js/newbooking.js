@@ -3,8 +3,10 @@ var course;
 var date;
 var time;
 var hole;
-
-
+var ClientcourseID;
+var membershipNo;
+var niteNineHole;
+var clubMemberID;
 function GenerateDateDropDownList() {
     var nowDate;
     
@@ -32,7 +34,7 @@ function GenerateDateDropDownList() {
     monthName[10] = "November";
     monthName[11] = "December";
 
-    $("#dropDate").html("<option Date='0'>-- Please Select a Date -- </option>");
+    $("#dropDate").html("<option Date='0'>Date</option>");
     if (defaultDate_Test != "") {
         nowDate = new Date(defaultDate_Test);
     }
@@ -57,7 +59,7 @@ function GenerateDateDropDownList() {
 
 }
 function GenerateCourseDropdownList() {
-    $("#dropCourse").html("<option value='0' ClientID='0'>-- Please Select a Course --</option>");
+    $("#dropCourse").html("<option value='0' ClientID='0'>Course</option>");
 
     $.ajax({
         type: "GET",
@@ -81,38 +83,56 @@ $(document).one('pagecreate', function () {
 $(document).on('pagebeforeshow', function () {
     $(document).off('click', '#SubmitBooking').on('click', '#SubmitBooking', function (e) {
         course = $('#dropCourse :selected').val();
-        var clubMemberID = "38";
+        
         if (localStorage.getItem("ClubMemberID") != null) {
             clubMemberID = localStorage.getItem("ClubMemberID");
+        }
+        if (localStorage.getItem("MembershipNo") != null) {
+            membershipNo = localStorage.getItem("MembershipNo");
         }
         $.ajax({
             type: "GET",
             url: SERVER_END_POINT_API + "api/Booking/Book",
-            async: false,
             dataType: 'json',
             data: {
                 Date: date + " " + value ,
                 CourseCode: course,
-                MembershipNo: "",
+                ClientCourseCode: ClientcourseID,
+                MembershipNo: membershipNo,
                 HoleType: hole,
                 ClubmemberID: clubMemberID,
             },
             success: function (result) {
-                $.mobile.changePage("bookingConfirmed.html", { data: { "BookingID": result } });
+                if (result == "-1") {
+                    alert("Error When Booking, Please Select Another Date and Time");
+                } else {
+                    $.mobile.changePage("bookingConfirmed.html", { data: { "BookingID": result } });
+                    
+                }
+            },
+            fail: function (jqXHR, exception) {
+                alert(exception);
             }
         });
     });
-
+    $(document).off('click', '#cancelComfirm').on('click', '#cancelComfirm', function (e) {
+        $("#popup_Booking").popup("close");
+    });
+    $(document).off('click', '#closeErrMsg').on('click', '#closeErrMsg', function (e) {
+        $("#popup_ErrMsg").popup("close");
+    });
     $(document).off('click', '#btnSearch').on('click', '#btnSearch', function (e) {
         date = $('#dropDate :selected').attr("date");
         course = $('#dropCourse :selected').attr("value");
         ClientcourseID = $('#dropCourse :selected').attr("ClientID");
         time = $("input[name='radio-time']:checked").val();
         if (date == 0) {
-            alert("Please Select a Date");
+            $("#popup_ErrMsg").popup("open");
+            $("#ErroMessage").html("Please Select A Date");
         }
         else if (course == 0) {
-            alert("Please Select a Course");
+            $("#popup_ErrMsg").popup("open");
+            $("#ErroMessage").html("Please Select A Course");
         }
         else {
         $.ajax({
@@ -125,11 +145,12 @@ $(document).on('pagebeforeshow', function () {
                 Type: time,
             },
             success: function (result) {
-                $("#listFlight").html("");
-                $.each(result, function (index, element) {
+                $("#listFlight").html("<h3 style='color:white;margin-top:0px'>Available Flight</h3>");
+                niteNineHole = result.NineHole;
+                $.each(result.AvailableTime, function (index, element) {
                     var time = element;
                     var res = time.split(" ");
-                    $("#listFlight").append("<button class=" + 'btnFlight' + " data-role=" + 'button' + " data-theme=" + 'c' + " data-corners=" + 'false' + " data-mini=" + 'true' + " data-inline=" + 'true' + " value =" + res + " time =" + res + ">" + time + "</button>").trigger("create");
+                    $("#listFlight").append("<button style='width:70px' class=" + 'btnFlight' + " data-role=" + 'button' + " data-theme=" + 'c' + " data-mini='true' data-corners=" + 'false' + " data-mini=" + 'true' + " data-inline=" + 'true' + " value =" + res + " time =" + res + ">" + time + "</button>").trigger("create");
                 });
                 $("#listFlight").append("<br/><br/>").children().last().trigger("create");
                
@@ -143,12 +164,18 @@ $(document).on('pagebeforeshow', function () {
 
     $(document).off('click', '.btnFlight').on('click', '.btnFlight', function (e) {
         value = $(this).attr("time");
+        var Check9Hole = $(this).text();
         course = $('#dropCourse :selected').text();
         date = $('#dropDate :selected').attr("date");
         var datedisplayed = $('#dropDate :selected').text();
         time = $("input[name='radio-time']:checked").attr("value");
         hole = $("input[name='radio-hole']:checked").attr("value");
-
+        for (var i = 0; i <= niteNineHole.length; i++) {
+            if (Check9Hole == niteNineHole[i]) {
+                alert("Only 9 Hole Available for the time: " + Check9Hole);
+                hole = 9;
+            }
+        }
         var timeDisplay = value.split(",");
         $("#Inside-Course").html(course);
         $("#Inside-DateTime").html(datedisplayed);

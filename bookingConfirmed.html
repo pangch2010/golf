@@ -23,56 +23,37 @@
             <br />
             <br />
 
-            <ul data-role="listview" data-theme="d" data-inset="true">
-                <li data-theme="c" class="center">
-                    <label>Booking Sent</label>
-                </li>
-                <li data-theme="a" class="center">
-                    <div class="ui-grid-solo">
-                        <h1 id="bookedClub"></h1>
-                    </div>
+            <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider" data-theme="b">
+                        <label>Booking ID: 123456789<img src="images/cross.png" class="deleteIcon btnCancelBooking" comfirmID="1234" /></label>
+                    </li>
+                    <li data-theme="d">
+                        <div class="ui-grid-b center">
+                            <br />
+                            <div class="ui-block-a">
+                                <img src="images/date.png" class="cancellationIcon" /></div>
+                            <div class="ui-block-b">
+                                <img src="images/time.png" class="cancellationIcon" /></div>
+                            <div class="ui-block-c">
+                                <img src="images/hole.png" class="cancellationIcon" /></div>
 
+                            <div class="ui-block-a">
+                                <id>13/05/2014</id>
+                            </div>
+                            <div class="ui-block-b">
+                                <id>12:00 pm</id>
+                            </div>
+                            <div class="ui-block-c">
+                                <id>18 Holes</id>
+                            </div>
 
-                    <table align="center">
-                        <tbody>
-                            <tr>
-                                <th>
-                                    <img src="images/course2.png" class="dialogLogo" /><br />
-                                </th>
-                                <th>
-                                    <id id="bookedCourse" class="btnLeft"></id>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                            </tr>
-                            <tr></tr>
-                            <tr>
-                                <th>
-                                    <img src="images/date2.png" class="dialogLogo" /><br />
-                                </th>
-                                <th class="btnLeft">
-                                    <id id="bookedDate" class="btnLeft"></id>
-                                </th>
-                            </tr>
-                            <tr></tr>
-                            <tr>
-                                <th>
-                                    <img src="images/time.png" class="dialogLogo" /><br />
-                                </th>
-                                <th>
-                                    <id id="bookedTime" class="btnLeft"></id>
-                                </th>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                </li>
-                <a data-role="button" class="btnClick" href="#popup_Delete" data-transition="flip" data-rel="popup" data-theme="e">Cancel Booking
-                </a>
-
-            </ul>
+                        </div>
+                        <br />
+                    </li>
+                    <li data-role="list-divider" data-theme="b">
+                        <label>East Course 1</label>
+                    </li>
+                </ul>
         </div>
         <!-- portBox Content -->
         <div id="popup_Delete" data-role="popup" data-theme="a" data-overlay-theme="a" class="ui-content" data-position-to="window">

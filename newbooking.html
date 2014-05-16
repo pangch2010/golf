@@ -9,10 +9,28 @@
     <script src="lib/jquery-2.0.2.min.js"></script>
     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
-    <link rel="stylesheet" href="css/GolfTheme.min.css" />
+    <link rel="stylesheet" href="css/GolfNewStyle.min.css" />
 
     <!-- Golf style and jQuery -->
     <link rel="stylesheet" href="css/golfStyle.css">
+    <style>
+        id {
+            color:black;
+        }
+        .btnFlight{
+            border-color: #3388cc;
+            border: none;
+            color: #ffffff;
+            margin: 2px;
+            background-color: rgba(0,0,0,.70) !important;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 11px;
+            padding: 20px 10px;
+        }
+    </style>
 </head>
 <body>
     <div data-role="page" id="page1">
@@ -22,58 +40,59 @@
             <script src="js/main.js"></script>
             <script src="js/newbooking.js"></script>
 
-            <a data-role="button" href="booking_menu.html" data-icon="grid" class="btnLeft ui-btn-left" data-transition="slide" data-theme="c" data-direction="reverse">Menu</a>
-
-            <br />
-            <br />
-
-            <button data-theme="a">KLGCC</button>
-
-            <select id="dropDate" data-native-menu="false">
-            </select>
-
-            <div class="ui-grid-solo">
-                <fieldset data-role="controlgroup" data-type="horizontal" class="center">
-                    <input type="radio" name="radio-time" id="radio-mini-1" value="AM" checked="checked" />
-                    <label for="radio-mini-1">Morning</label>
-                    <input type="radio" name="radio-time" id="radio-mini-2" value="PM" />
-                    <label for="radio-mini-2">Afternoon</label>
-                    <input type="radio" name="radio-time" id="radio-mini-3" value="NIGHT" />
-                    <label for="radio-mini-3">Night</label>
-                </fieldset>
+            
+            <div class="ui-grid-b">
+                 <div class="ui-block-a"><a data-role="button" href="booking_menu.html" data-icon="grid" class="btnLeft ui-btn-left" data-transition="slide" data-theme="c" data-direction="reverse">Menu</a></div>
+                <div class="ui-block-b"><h2 style="color:white">KLGCC</h2></div>
+                <div class="ui-block-c"></div>
             </div>
 
-            <div class="ui-grid-solo">
-                <!-- <select name="flip-1" id="flip-1" data-role="slider" data-mini="true" class="center">
-                        <option value="9">9 hole</option>
-                        <option value="18" selected="selected">18 hole</option>
-                    </select>-->
-                <fieldset data-role="controlgroup" data-type="horizontal" class="center">
+            <div class="ui-grid-a">
+	        <div class="ui-block-a"><select id="dropDate" data-native-menu="false"  data-mini="true"></select></div>
+           <div class="ui-block-b"> <select data-native-menu="false" id="dropCourse"  data-mini="true"></select></div>	   
+            </div>
+            <div class="ui-grid-a ui-responsive">
+                 <div class="ui-grid-solo" style="float:left">
+                    <fieldset data-role="controlgroup" data-type="horizontal" class="center">
+                     <span class="morning"> <input type="radio" name="radio-time" id="radio-mini-1" value="AM" checked="checked" /><label for="radio-mini-1">Morning</label> </span>
+                     <span class="noon"><input  type="radio" name="radio-time" id="radio-mini-2" value="PM" /> <label for="radio-mini-2">Afternoon</label></span>
+                    <span class="night"><input type="radio" name="radio-time" id="radio-mini-3" value="NIGHT" /><label for="radio-mini-3">Night</label></span>
+                </fieldset></div>
+                         <div class="ui-grid-solo" style="float:left">
+                    <fieldset data-role="controlgroup" data-type="horizontal" class="center">
+                <span class="hole">
                     <input type="radio" name="radio-hole" id="radio1" value="18" checked="checked" />
-                    <label for="radio1">18 Hole</label>
-
+                    <label for="radio1">18 Hole</label><span class="dline"><br></span>
                     <input type="radio" name="radio-hole" id="radio2" value="9" />
                     <label for="radio2">9 Hole</label>
+                    </span>
                 </fieldset>
-            </div>
-
-            <div class="ui-grid-solo">
-                <select data-native-menu="false" id="dropCourse">
-                </select>
-            </div>
-
+                </div>
+                </div>
             <br />
 
-            <button id="btnSearch" data-role="button" data-transition="flip" data-rel="popup" data-theme="e">Search</button>
-
-            <div id="flightTitle" class="center"></div>
-            <div class="ui-grid-solo center" id="listFlight" data-theme="d">
+            <div class="center" style="background-color:rgba(0,0,0,.40);position:absolute;left:0;right:0;width:100%;">
+                <a id="btnSearch" href="#" class="ui-btn ui-btn-inline" style="background-color:transparent;border:none"><img src="images/icon/search.png" /></a>
+                <div class="ui-grid-solo center" id="listFlight" data-theme="d" style="padding:10px;"></div>
             </div>
+            
             <br />
             <br />
         </div>
 
         <!-- portBox Content -->
+    <div data-role="popup" id="popup_ErrMsg" data-position-to="window" data-theme="a" data-overlay-theme="b">
+        <ul data-role="listview" data-theme="a" data-inset="true">
+                <li data-theme="c" class="center">
+                    <id id="Id1">Error</id>
+                </li>
+                <li class="center"><id id="ErroMessage"></id></li>
+            <li> <div class="center">
+                        <a id="closeErrMsg" data-role="button" data-mini="true" data-transition="flow" data-theme="c">OK</a>
+
+                    </div></li>
+            </ul>
+    </div>
         <div data-role="popup" id="popup_Booking" data-position-to="window" data-theme="a" data-overlay-theme="b">
 
 
@@ -82,7 +101,42 @@
                     <id id="Inside-Club">KLGCC</id>
                 </li>
                 <li class="center">
-                    <table align="center">
+                    <div id="wrapper">
+
+                <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider" data-theme="b">
+                        <label>Booking ID: 123456789<img src="images/cross.png" class="deleteIcon btnCancelBooking" comfirmID="1234" /></label>
+                    </li>
+                    <li data-theme="d">
+                        <div class="ui-grid-b center">
+                            <br />
+                            <div class="ui-block-a">
+                                <img src="images/date.png" class="cancellationIcon" /></div>
+                            <div class="ui-block-b">
+                                <img src="images/time.png" class="cancellationIcon" /></div>
+                            <div class="ui-block-c">
+                                <img src="images/hole.png" class="cancellationIcon" /></div>
+
+                            <div class="ui-block-a">
+                                <id>13/05/2014</id>
+                            </div>
+                            <div class="ui-block-b">
+                                <id>12:00 pm</id>
+                            </div>
+                            <div class="ui-block-c">
+                                <id>18 Holes</id>
+                            </div>
+
+                        </div>
+                        <br />
+                    </li>
+                    <li data-role="list-divider" data-theme="b">
+                        <label>East Course 1</label>
+                    </li>
+                </ul>
+
+            </div>
+                   <!-- <table align="center">
                         <tbody>
                             <tr>
                                 <th>
@@ -118,9 +172,8 @@
                                     <id id="Inside-Time"></id>
                                 </th>
                             </tr>
-
                         </tbody>
-                    </table>
+                    </table>-->
 
                     <br>
 
@@ -128,10 +181,13 @@
                         <!--href="bookingConfirmed.html" -->
                         <a id="SubmitBooking" data-role="button" data-mini="true" data-transition="flow" data-theme="c">OK
                         </a>
-                        <a data-role="button" href="newbooking.html" data-mini="true" data-transition="fade" data-theme="d">Cancel
+                        <a id="cancelComfirm"data-role="button" data-mini="true" data-transition="fade" data-theme="d">Cancel
                         </a>
 
                     </div>
+                </li>
+                <li>
+                    
                 </li>
             </ul>
         </div>
