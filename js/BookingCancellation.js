@@ -21,7 +21,7 @@ function loadBooking(membershipNo) {
 
                     htmlString = htmlString + "<ul data-role=\"listview\" data-inset=\"true\">" +
                     "<li data-role=\"list-divider\" data-theme=\"b\">" +
-                        "<label>Booking ID:" + element.ConfirmationID + "<img src=\"images/cross.png\" class=\"deleteIcon btnCancelBooking\" confirmid=\"" + element.ConfirmationID + "\" courseid=\"" + element.CourseID + "\" flightdatetime=\"" + element.FlightDateTime + "\" noofholes=\"" + element.NoOfHoles + "\" /></label></li> " +
+                        "<label>Booking ID: " + element.ConfirmationID + "<img src=\"images/cross.png\" class=\"deleteIcon btnCancelBooking\" confirmid=\"" + element.ConfirmationID + "\" courseid=\"" + element.CourseID + "\" flightdatetime=\"" + element.FlightDateTime + "\" noofholes=\"" + element.NoOfHoles + "\" /></label></li> " +
                     "<li data-theme=\"d\"><div class=\"ui-grid-b center\"><br />" +
                             "<div class=\"ui-block-a\"><img src=\"images/date.png\" class=\"cancellationIcon\" /></div>" +
                             "<div class=\"ui-block-b\"><img src=\"images/time.png\" class=\"cancellationIcon\" /></div>" +
@@ -35,7 +35,7 @@ function loadBooking(membershipNo) {
                 $("#wrapper").html("");
                 $("#wrapper").append(htmlString).trigger("create");
             } else {
-                htmlString = htmlString + "<h1>You have no upcoming booking.</h1>"
+                htmlString = htmlString + "<div class=\"no-booking\"> You have no upcoming booking.</div>"
                 $("#wrapper").html("");
                 $("#wrapper").append(htmlString);
             }
@@ -65,6 +65,10 @@ $(document).one("pagebeforeshow", function () {
 
     $(document).off('click', '#cancelBooking').on('click', '#cancelBooking', function (e) {
         submitCancel(membershipNo, confirmationID, clubMemberID, courseID, flightDateTime, noOfHoles);
+    });
+
+    $(document).off('click', '.btnMenu_Click').on('click', '.btnMenu_Click', function (e) {
+        window.location.href = "booking_menu.html";
     });
 });
 function submitCancel(membershipno, confirmationid, clubMemberID, courseID, flightDateTime, noOfHoles) {

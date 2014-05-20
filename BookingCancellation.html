@@ -20,65 +20,36 @@
     <div data-role="page" id="page1">
 
         <div data-role="header" data-theme="d">
-
-            <a href="booking_menu.html" class="ui-btn ui-icon-bullets ui-btn-icon-notext ui-corner-all">No text</a>
             <h1>Booking</h1>
-
+            <img src="images/menu-icon.png" class="btnMenu btnMenu_Click" />
         </div>
 
-        <div data-role="content">
-
-            <br />
-            <br />
+        <div data-role="content" style="padding:0;">
 
             <div id="wrapper">
-
-                <ul data-role="listview" data-inset="true">
-                    <li data-role="list-divider" data-theme="b">
-                        <label>Booking ID: 123456789<img src="images/cross.png" class="deleteIcon btnCancelBooking" comfirmID="1234" /></label>
-                    </li>
-                    <li data-theme="d">
-                        <div class="ui-grid-b center">
-                            <br />
-                            <div class="ui-block-a">
-                                <img src="images/date.png" class="cancellationIcon" /></div>
-                            <div class="ui-block-b">
-                                <img src="images/time.png" class="cancellationIcon" /></div>
-                            <div class="ui-block-c">
-                                <img src="images/hole.png" class="cancellationIcon" /></div>
-
-                            <div class="ui-block-a">
-                                <id>13/05/2014</id>
-                            </div>
-                            <div class="ui-block-b">
-                                <id>12:00 pm</id>
-                            </div>
-                            <div class="ui-block-c">
-                                <id>18 Holes</id>
-                            </div>
-
-                        </div>
-                        <br />
-                    </li>
-                    <li data-role="list-divider" data-theme="b">
-                        <label>East Course 1</label>
-                    </li>
-                </ul>
 
             </div>
         </div>
 
-        <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="a" data-dismissible="false" >
-			<div data-role="header" data-theme="a">
-			<h1>Cancel Booking?</h1>
-			</div>
-			<div role="main" class="ui-content">
-				<h3 class="ui-title">Are you sure you want to cancel this booking?</h3>
-			<p>This action cannot be undone.</p>
-				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow" id="cancelBooking">OK</a>
-				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>				
-			</div>
-		</div>
+        <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+            <div role="main" class="ui-content">
+                <h3>Cancel Booking ?</h3>
+
+
+                <p class="ui-title">Are you sure you want to cancel this booking?</p>
+                <p>This action cannot be undone.</p>
+                <!--				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow" id="cancelBooking">OK</a>
+				<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+                -->
+                <br />
+
+                <a id="cancelBooking" data-role="button" data-mini="true" data-transition="flow" data-theme="e" data-rel="back">OK
+                </a>
+                <a id="cancelComfirm" data-role="button" data-mini="true" data-transition="fade" data-theme="a" data-rel="back">Cancel
+                </a>
+
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -58,6 +58,9 @@ function GenerateDateDropDownList() {
     $('#dropDate').selectmenu('refresh', true);
 
 }
+function resetAvailabletime() {
+    $("#listFlight").html("");
+}
 function GenerateCourseDropdownList() {
     $("#dropCourse").html("<option value='0' ClientID='0'>Course</option>");
 
@@ -103,11 +106,11 @@ $(document).on('pagebeforeshow', function () {
                 ClubmemberID: clubMemberID,
             },
             success: function (result) {
-                if (result == "-1") {
-                    alert("Error When Booking, Please Select Another Date and Time");
-                } else {
+                if (result === parseInt(result)) {
                     $.mobile.changePage("bookingConfirmed.html", { data: { "BookingID": result } });
-                    
+                }
+                else {
+                    alert("Error When Booking, Please Select Another Date and Time");
                 }
             },
             fail: function (jqXHR, exception) {
@@ -121,7 +124,16 @@ $(document).on('pagebeforeshow', function () {
     $(document).off('click', '#closeErrMsg').on('click', '#closeErrMsg', function (e) {
         $("#popup_ErrMsg").popup("close");
     });
+    $(document).off('click', '.btnMenu_Click').on('click', '.btnMenu_Click', function (e) {
+        window.location.href = "booking_menu.html";
+    });
+
+    $(document).off('click', '.btnMenu_Click').on('click', '.btnMenu_Click', function (e) {
+        window.location.href = "booking_menu.html";
+    });
+
     $(document).off('click', '#btnSearch').on('click', '#btnSearch', function (e) {
+        resetAvailabletime();
         date = $('#dropDate :selected').attr("date");
         course = $('#dropCourse :selected').attr("value");
         ClientcourseID = $('#dropCourse :selected').attr("ClientID");
@@ -145,12 +157,13 @@ $(document).on('pagebeforeshow', function () {
                 Type: time,
             },
             success: function (result) {
-                $("#listFlight").html("<h3 style='color:white;margin-top:0px'>Available Flight</h3>");
+               // $("#listFlight").html("<h3 style='color:white;margin-top:0px; text-shadow:none; font-size:12px;'>Available Flight</h3>");
+                $("#listFlight").html("");
                 niteNineHole = result.NineHole;
                 $.each(result.AvailableTime, function (index, element) {
                     var time = element;
                     var res = time.split(" ");
-                    $("#listFlight").append("<button style='width:70px' class=" + 'btnFlight' + " data-role=" + 'button' + " data-theme=" + 'c' + " data-mini='true' data-corners=" + 'false' + " data-mini=" + 'true' + " data-inline=" + 'true' + " value =" + res + " time =" + res + ">" + time + "</button>").trigger("create");
+                    $("#listFlight").append("<button style='width:70px; height:' class=" + 'btnFlight' + " data-role=" + 'button' + " data-theme=" + 'c' + " data-mini='true' data-corners=" + 'false' + " data-mini=" + 'true' + " data-inline=" + 'true' + " value =" + res + " time =" + res + ">" + time + "</button>").trigger("create");
                 });
                 $("#listFlight").append("<br/><br/>").children().last().trigger("create");
                
@@ -161,7 +174,15 @@ $(document).on('pagebeforeshow', function () {
         });
         }
     });
-
+    $(document).off('change', '#dropDate').on('change', '#dropDate', function (e) {
+        resetAvailabletime();
+    });
+    $(document).off('change', '#dropCourse').on('change', '#dropCourse', function (e) {
+        resetAvailabletime();
+    });
+    $(document).off('change', '[type="radio"]').on('change', '[type="radio"]', function (e) {
+        resetAvailabletime();
+    });
     $(document).off('click', '.btnFlight').on('click', '.btnFlight', function (e) {
         value = $(this).attr("time");
         var Check9Hole = $(this).text();
@@ -178,9 +199,9 @@ $(document).on('pagebeforeshow', function () {
         }
         var timeDisplay = value.split(",");
         $("#Inside-Course").html(course);
-        $("#Inside-DateTime").html(datedisplayed);
+        $("#Inside-DateTime").html(date);
         $("#Inside-Time").html(timeDisplay[0] + " [ " + time + " ]");
-        $("#Inside-Hole").html("[ " + hole + " ]");
+        $("#Inside-Hole").html(hole + " Holes");
         $("#popup_Booking").popup("open");
     });
 });

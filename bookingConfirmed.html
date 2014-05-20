@@ -8,24 +8,30 @@
     <script src="lib/jquery-2.0.2.min.js"></script>
     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
-    <link rel="stylesheet" href="css/GolfTheme.min.css" />
+    <link rel="stylesheet" href="css/GolfNewStyle.min.css" />
 
     <!-- Golf style and jQuery -->
     <link rel="stylesheet" href="css/golfStyle.css">
 </head>
 <body>
     <div data-role="page" id="page1">
+
+        <div data-role="header" data-theme="d">
+            <h1>Booking</h1>
+            <img src="images/menu-icon.png" class="btnMenu btnMenu_Click" />
+        </div>
+
         <div data-role="content">
             <script src="js/main.js"></script>
             <script src="js/bookingConfirmed.js"></script>
-            <a data-role="button" href="booking_menu.html" data-icon="back" class="btnLeft ui-btn-left" data-transition="slide" data-theme="c" data-direction="reverse">back</a>
+            
 
             <br />
             <br />
 
             <ul data-role="listview" data-inset="true">
                     <li data-role="list-divider" data-theme="b">
-                        <label>Booking ID: 123456789<img src="images/cross.png" class="deleteIcon btnCancelBooking" comfirmID="1234" /></label>
+                         <h1 id="bookedClub"></h1>
                     </li>
                     <li data-theme="d">
                         <div class="ui-grid-b center">
@@ -38,25 +44,25 @@
                                 <img src="images/hole.png" class="cancellationIcon" /></div>
 
                             <div class="ui-block-a">
-                                <id>13/05/2014</id>
+                                 <id id="bookedDate" class="btnLeft"></id>
                             </div>
                             <div class="ui-block-b">
-                                <id>12:00 pm</id>
+                                <id id="bookedTime" class="btnLeft"></id>
                             </div>
                             <div class="ui-block-c">
-                                <id>18 Holes</id>
+                                <id id="bookedHole">18 Holes</id>
                             </div>
 
                         </div>
                         <br />
                     </li>
                     <li data-role="list-divider" data-theme="b">
-                        <label>East Course 1</label>
+                        <id id="bookedCourse" class="btnLeft"></id>
                     </li>
                 </ul>
         </div>
-        <!-- portBox Content -->
-        <div id="popup_Delete" data-role="popup" data-theme="a" data-overlay-theme="a" class="ui-content" data-position-to="window">
+      <!-- portBox Content -->
+       <!--   <div id="popup_Delete" data-role="popup" data-theme="a" data-overlay-theme="a" class="ui-content" data-position-to="window">
 
             <div data-role="content">
 
@@ -71,7 +77,7 @@
                 <a data-role="button" href="bookingConfirmed.html" data-mini="true" data-transition="fade">NO
                 </a>
             </div>
-        </div>
+        </div>-->
 
     </div>
 </body>

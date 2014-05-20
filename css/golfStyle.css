@@ -1,95 +1,146 @@
-﻿body {
+﻿body
+{
 }
 
-#page1 {
+#page1
+{
     background: transparent url('../images/repeat-bg.jpg') repeat;
 }
 
-h1 {
+h1
+{
     color: white;
-    font-size: 3vw;
 }
 
-.page {
+.page
+{
     background: transparent url('../images/repeat-bg.jpg') repeat;
 }
 
-.header {
+.header
+{
     background: url('../images/header-bg.jpg') repeat-x;
 }
 
-.btnLeft {
+.btnLeft
+{
     float: left;
 }
 
-.btnRight {
+.btnRight
+{
     float: right;
 }
 
-button {
-    width: 80px
+button
+{
+    width: 80px;
 }
 
-label {
+label
+{
     display: inline-block;
     font-size: 4vw;
     color: #ffffff;
     text-shadow: 0 1px 0 #fff;
 }
 
-.center {
+.center
+{
     text-align: center;
 }
 
-.ui-popup-container {
-    width:80%
+.ui-popup-container
+{
+    width: 80%;
 }
 
-.logoPosition {
-    text-align:left;
-    padding-top: 20vw;
-    padding-left:10vw;
+.logoPosition
+{
+    text-align: left;
+    padding-top: 5%;
+    padding-left: 5%;
 }
-.logo {
+
+.logo
+{
     width: 35vw;
 }
 
-.cancellationIcon {
+.cancellationIcon
+{
     width: 15vw;
 }
+
+labelLogin
+{
+    padding: 0% 5%;
+    display: inline-block;
+    font-size: 3.8vw;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #fff;
+}
+
+labelLoginName
+{
+    padding: 5% 4%;
+    display: inline-block;
+    font-size: 3.8vw;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.textSmallAlign
+{
+    font-size: 4.5vw;
+}
+
+
 #registration
 {
- background-image:  url(../images/loginpg-bg.jpg) !important;
-    background-size:   cover !important;             
+    background-image: url(../images/loginpg-bg.jpg) !important;
+    background-size: cover !important;
     background-repeat: no-repeat;
 }
+
 .Registerbg
 {
-padding: 20px 10px;
-background-color: #1a517f;
--moz-box-shadow: inset 0 0 10px #16466e;
--webkit-box-shadow: inset 0 0 10px #16466e;
-box-shadow: inset 0 0 10px #16466e;    
+    padding: 20px 10px;
+    background-color: #1a517f;
+    -moz-box-shadow: inset 0 0 10px #16466e;
+    -webkit-box-shadow: inset 0 0 10px #16466e;
+    box-shadow: inset 0 0 10px #16466e;
 }
+
+.Registerloginbg
+{
+    padding: 1em 1em;
+    background-color: rgba(0,0,0,.60) !important;
+    -moz-box-shadow: inset 0 0 10px #16466e;
+    -webkit-box-shadow: inset 0 0 10px #16466e;
+    box-shadow: inset 0 0 10px #16466e;
+    float: left;
+    width: 100%;
+}
+
 .RegbtnClick
 {
-color: #fff;
-text-shadow: 0 -1px 0 #666;
-border-color: #666;
-background-image: -ms-linear-gradient(top, #3F9E1E 0%, #348717 100%);
-background-image: -moz-linear-gradient(top, #3F9E1E 0%, #348717 100%);
-background-image: -o-linear-gradient(top, #3F9E1E 0%, #348717 100%);
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3F9E1E), color-stop(1, #348717));
-background-image: -webkit-linear-gradient(top, #3F9E1E 0%, #348717 100%);
-background-image: linear-gradient(to bottom, #3F9E1E 0%, #348717 100%);
-border: none;
-padding-top: 10px;
-padding-bottom: 10px;
-width: 100px !important;
-float: right;
-margin-right: 20px;
-margin-top: 20px;
-
+    color: #fff;
+    text-shadow: 0 -1px 0 #666;
+    border-color: #666;
+    background-image: -ms-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    background-image: -moz-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    background-image: -o-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3F9E1E), color-stop(1, #348717));
+    background-image: -webkit-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    background-image: linear-gradient(to bottom, #3F9E1E 0%, #348717 100%);
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100px !important;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 /*
     label .black {
@@ -413,13 +464,16 @@ a:link { color:purple; }*/
 
 /* First breakpoint at 576px */
 /* Inherits mobile styles, but floats containers to make columns */
-@media all and (min-width: 36em) {
-    .main {
+@media all and (min-width: 36em)
+{
+    .main
+    {
         float: left;
         width: 60%;
     }
 
-    .sidebar {
+    .sidebar
+    {
         float: left;
         width: 40%;
     }
@@ -442,12 +496,15 @@ a:link { color:purple; }*/
 
 /* Second breakpoint at 800px */
 /* Adjusts column proportions, tweaks base H1 */
-@media all and (min-width: 50em) {
-    .main {
+@media all and (min-width: 50em)
+{
+    .main
+    {
         width: 70%;
     }
 
-    .sidebar {
+    .sidebar
+    {
         width: 30%;
     }
 
@@ -516,12 +573,260 @@ a:link { color:purple; }*/
     /*H1 { color: blue; font-size:1.2em }*/
 }
 
-.deleteIcon {
+.deleteIcon
+{
     float: right;
     width: 9vw;
 }
 
-id {
+.smallIcon
+{
+    float: left;
+    width: 6vw;
+}
+
+id
+{
     font-size: 4vw;
     color: white;
+}
+
+input[type=radio]
+{
+    opacity: 0 !important;
+}
+
+#closeErrMsg, #SubmitBooking
+{
+    /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    /* Mozilla Firefox */
+    background-image: -moz-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    /* Opera */
+    background-image: -o-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    /* Webkit (Safari/Chrome 10) */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #3F9E1E), color-stop(1, #348717));
+    /* Webkit (Chrome 11+) */
+    background-image: -webkit-linear-gradient(top, #3F9E1E 0%, #348717 100%);
+    /* W3C Markup, IE10 Release Preview */
+    background-image: linear-gradient(to bottom, #3F9E1E 0%, #348717 100%);
+}
+
+#popup_Booking
+{
+    border-width: 0px;
+}
+
+.btnMenu
+{
+    width: 0.4em;
+    padding: 8px 30px 8px 10px;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+
+
+/*=======================================My Css=============================*/
+
+.ui-page-theme-a .morning .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:14px;
+padding:20px 10px;
+background: transparent url('../images/icon/morning-over.png') center 10px no-repeat; padding:54px 10px 20px; color:#FF0; text-shadow:none; min-width:210px;}
+
+	.ui-page-theme-a .morning .ui-radio-off{background: transparent url('../images/icon/morning.png') center 10px no-repeat;border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:14px;
+padding:54px 10px 20px; text-shadow:none; min-width:210px;}
+
+.ui-page-theme-a .noon .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:14px;
+padding:20px 10px;
+background: transparent url('../images/icon/noon-over.png') center 10px no-repeat; padding:54px 10px 20px; color:#FF0; text-shadow:none; min-width:210px;}
+	
+	.ui-page-theme-a .noon .ui-radio-off{background: transparent url('../images/icon/noon.png') center 10px no-repeat;border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:14px;
+padding:54px 10px 20px; text-shadow:none; min-width:210px;}
+
+.ui-page-theme-a .night .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:14px;
+padding:20px 10px;
+background: transparent url('../images/icon/night-over.png') center 10px no-repeat; padding:54px 10px 20px; color:#FF0; text-shadow:none; min-width:210px;}
+	
+	.ui-page-theme-a .night .ui-radio-off{background: transparent url('../images/icon/night.png') center 10px no-repeat;border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:14px;
+padding:54px 10px 20px; text-shadow:none;min-width:210px;}
+
+.ui-page-theme-a .hole .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:14px;
+background: transparent url('../images/icon/hole-hover.png') 4px 6px no-repeat; background-size:30px; 
+padding:14px 10px 14px 32px; color:#FF0; text-shadow:none; min-width:315px;}
+	
+	.ui-page-theme-a .hole .ui-radio-off{background: transparent url('../images/icon/hole.png') 4px 6px no-repeat;  background-size:30px; border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:14px;
+padding:14px 10px 14px 32px;text-shadow:none; min-width:315px; }
+input[type=radio] {
+    opacity: 0 !important;
+}
+
+/*=====================booking cancellation=======================*/
+.no-booking{
+	background-color:rgba(0,0,0,.40) !important;
+	color:#fff;
+	font-size:10vm;
+	text-align:center;
+	padding-top:6%;
+	padding-bottom:6%;
+	margin-top:10%;
+	margin-bottom:10%;
+	position:absolute;
+	width:100%;
+}
+@media only screen and (max-width : 1280px) {
+.no-booking{
+	background-color:rgba(0,0,0,.40) !important;
+	color:#fff;
+	font-size:10vm;
+	text-align:center;
+	padding-top:15%;
+	padding-bottom:15%;
+	margin-top:10%;
+	margin-bottom:10%;
+	position:absolute;
+	width:100%;
+	.ui-page-theme-a .morning .ui-btn-active {min-width:220px; font-size:14px;}
+.ui-page-theme-a .morning .ui-radio-off {min-width:220px; font-size:14px;}
+.ui-page-theme-a .noon .ui-btn-active {min-width:220px; font-size:14px;}
+.ui-page-theme-a .noon .ui-radio-off{min-width:220px; font-size:14px;}
+.ui-page-theme-a .night .ui-btn-active{min-width:220px; font-size:14px;}
+.ui-page-theme-a .night .ui-radio-off{min-width:220px; font-size:14px;}
+.ui-page-theme-a .hole .ui-btn-active {min-width:320px; font-size:14px;}
+.ui-page-theme-a .hole .ui-radio-off{min-width:320px; font-size:14px;}
+}
+
+@media only screen and (max-width : 768px) {
+	.no-booking{
+	background-color:rgba(0,0,0,.40) !important;
+	color:#fff;
+	font-size:10vm;
+	text-align:center;
+	padding-top:15%;
+	padding-bottom:15%;
+	margin-top:20%;
+	margin-bottom:20%;
+	position:absolute;
+	width:100%;
+}
+
+.ui-page-theme-a .morning .ui-btn-active {min-width:220px; font-size:14px;}
+.ui-page-theme-a .morning .ui-radio-off {min-width:220px; font-size:14px;}
+.ui-page-theme-a .noon .ui-btn-active {min-width:220px; font-size:14px;}
+.ui-page-theme-a .noon .ui-radio-off{min-width:220px; font-size:14px;}
+.ui-page-theme-a .night .ui-btn-active{min-width:220px; font-size:14px;}
+.ui-page-theme-a .night .ui-radio-off{min-width:220px; font-size:14px;}
+.ui-page-theme-a .hole .ui-btn-active {min-width:320px; font-size:14px;}
+.ui-page-theme-a .hole .ui-radio-off{min-width:320px; font-size:14px;}
+
+}
+
+@media only screen and (max-width : 640px) {
+	
+	.ui-page-theme-a .morning .ui-btn-active {min-width:174px; font-size:14px;}
+.ui-page-theme-a .morning .ui-radio-off {min-width:174px; font-size:14px;}
+.ui-page-theme-a .noon .ui-btn-active {min-width:174px; font-size:14px;}
+.ui-page-theme-a .noon .ui-radio-off{min-width:174px; font-size:14px;}
+.ui-page-theme-a .night .ui-btn-active{min-width:174px; font-size:14px;}
+.ui-page-theme-a .night .ui-radio-off{min-width:174px; font-size:14px;}
+.ui-page-theme-a .hole .ui-btn-active {min-width:251px; font-size:14px;}
+.ui-page-theme-a .hole .ui-radio-off{min-width:251px; font-size:14px;}
+}
+
+@media only screen and (max-width : 560px) {
+	.ui-page-theme-a .morning .ui-btn-active {min-width:118px; font-size:14px;}
+.ui-page-theme-a .morning .ui-radio-off {min-width:118px; font-size:14px;}
+.ui-page-theme-a .noon .ui-btn-active {min-width:118px; font-size:14px;}
+.ui-page-theme-a .noon .ui-radio-off{min-width:118px; font-size:14px;}
+.ui-page-theme-a .night .ui-btn-active{min-width:118px; font-size:14px;}
+.ui-page-theme-a .night .ui-radio-off{min-width:118px; font-size:14px;}
+.ui-page-theme-a .hole .ui-btn-active {min-width:168px; font-size:14px;}
+.ui-page-theme-a .hole .ui-radio-off{min-width:168px; font-size:14px;}
+}
+
+@media only screen and (max-width : 460px) {
+	.ui-page-theme-a .hole .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center;
+background: transparent url('../images/icon/hole-hover.png') 4px 6px no-repeat; background-size:30px; 
+padding:14px 10px 14px 32px; color:#FF0; text-shadow:none; float:left;}
+	
+	.ui-page-theme-a .hole .ui-radio-off{background: transparent url('../images/icon/hole.png') 4px 6px no-repeat;  background-size:30px; border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; 
+padding:14px 10px 14px 32px;text-shadow:none;}
+
+
+.no-booking{
+	background-color:rgba(0,0,0,.40) !important;
+	color:#fff;
+	font-size:10vm;
+	text-align:center;
+	padding-top:20%;
+	padding-bottom:20%;
+	margin-top:35%;
+	margin-bottom:35%;
+	position:absolute;
+	width:100%;
+}
+
+.ui-page-theme-a .morning .ui-btn-active {min-width:60px; font-size:12px;}
+.ui-page-theme-a .morning .ui-radio-off {min-width:60px; font-size:12px;}
+.ui-page-theme-a .noon .ui-btn-active {min-width:60px; font-size:12px;}
+.ui-page-theme-a .noon .ui-radio-off{min-width:60px; font-size:12px;}
+.ui-page-theme-a .night .ui-btn-active{min-width:60px; font-size:12px;}
+.ui-page-theme-a .night .ui-radio-off{min-width:60px; font-size:12px;}
+.ui-page-theme-a .hole .ui-btn-active {min-width:80px; font-size:12px;}
+.ui-page-theme-a .hole .ui-radio-off{min-width:80px; font-size:12px;}
+}
+
+
+input[type=radio] {
+    opacity: 0 !important;
 }

@@ -26,6 +26,11 @@ function formatAMPM(date) {
     return strTime;
 }
 $(document).one('pagebeforeshow', function (event, data) {
+
+    $(document).off('click', '.btnMenu_Click').on('click', '.btnMenu_Click', function (e) {
+        window.location.href = "booking_menu.html";
+    });
+
     var parameters = getURLParameter("BookingID");
     $.ajax({
         url: SERVER_END_POINT_API + 'api/Booking/GetBookingDetail',
@@ -47,6 +52,8 @@ $(document).one('pagebeforeshow', function (event, data) {
             $("#bookedDate").append(FlightDateTime.getFullYear() + "-" + (FlightDateTime.getMonth() + 1) + "-" + FlightDateTime.getDate());
             $('#bookedTime').html("");
             $("#bookedTime").append(formatAMPM(FlightDateTime));
+            $('#bookedHole').html("");
+            $("#bookedHole").append(Data.Holes);
         }
     });
 });

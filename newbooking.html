@@ -35,17 +35,22 @@
 <body>
     <div data-role="page" id="page1">
 
+         <div data-role="header" data-theme="d">
+            <h1>KLGCC</h1>
+            <img src="images/menu-icon.png" class="btnMenu btnMenu_Click" />
+        </div>
+
 
         <div data-role="content">
             <script src="js/main.js"></script>
             <script src="js/newbooking.js"></script>
 
-            
+         <!--   
             <div class="ui-grid-b">
                  <div class="ui-block-a"><a data-role="button" href="booking_menu.html" data-icon="grid" class="btnLeft ui-btn-left" data-transition="slide" data-theme="c" data-direction="reverse">Menu</a></div>
                 <div class="ui-block-b"><h2 style="color:white">KLGCC</h2></div>
                 <div class="ui-block-c"></div>
-            </div>
+            </div>-->
 
             <div class="ui-grid-a">
 	        <div class="ui-block-a"><select id="dropDate" data-native-menu="false"  data-mini="true"></select></div>
@@ -72,8 +77,8 @@
             <br />
 
             <div class="center" style="background-color:rgba(0,0,0,.40);position:absolute;left:0;right:0;width:100%;">
-                <a id="btnSearch" href="#" class="ui-btn ui-btn-inline" style="background-color:transparent;border:none"><img src="images/icon/search.png" /></a>
-                <div class="ui-grid-solo center" id="listFlight" data-theme="d" style="padding:10px;"></div>
+                <a id="btnSearch" href="#" class="ui-btn ui-btn-inline" style="background-color:transparent;border:none;padding:0px"><img src="images/icon/search.png" /></a>
+                <div class="ui-grid-solo center" id="listFlight" data-theme="d" style="padding:0px;"></div>
             </div>
             
             <br />
@@ -96,42 +101,35 @@
         <div data-role="popup" id="popup_Booking" data-position-to="window" data-theme="a" data-overlay-theme="b">
 
 
-            <ul data-role="listview" data-theme="a" data-inset="true">
-                <li data-theme="c" class="center">
+            <ul data-role="listview" data-theme="a" data-inset="true" >
+                <li data-theme="c" class="center" >
                     <id id="Inside-Club">KLGCC</id>
                 </li>
-                <li class="center">
+                <li class="center" style="background-image:url('images/bg-repeat.jpg');border:0px">
                     <div id="wrapper">
 
-                <ul data-role="listview" data-inset="true">
-                    <li data-role="list-divider" data-theme="b">
-                        <label>Booking ID: 123456789<img src="images/cross.png" class="deleteIcon btnCancelBooking" comfirmID="1234" /></label>
-                    </li>
+                <ul data-role="listview" data-inset="true" >
                     <li data-theme="d">
                         <div class="ui-grid-b center">
                             <br />
                             <div class="ui-block-a">
-                                <img src="images/date.png" class="cancellationIcon" /></div>
-                            <div class="ui-block-b">
-                                <img src="images/time.png" class="cancellationIcon" /></div>
-                            <div class="ui-block-c">
-                                <img src="images/hole.png" class="cancellationIcon" /></div>
-
-                            <div class="ui-block-a">
-                                <id>13/05/2014</id>
+                                <img src="images/date.png" class="cancellationIcon" /> <br />
+                                 <id id="Inside-DateTime" style="color:white"></id>
                             </div>
                             <div class="ui-block-b">
-                                <id>12:00 pm</id>
+                                <img src="images/time.png" class="cancellationIcon" /><br />
+                                <id id="Inside-Time" style="color:white"></id>
                             </div>
                             <div class="ui-block-c">
-                                <id>18 Holes</id>
+                                <img src="images/hole.png" class="cancellationIcon" /><br />
+                                <id id="Inside-Hole" style="color:white"></id>
                             </div>
 
                         </div>
                         <br />
                     </li>
                     <li data-role="list-divider" data-theme="b">
-                        <label>East Course 1</label>
+                        <label id="Inside-Course"></label>
                     </li>
                 </ul>
 
@@ -175,8 +173,6 @@
                         </tbody>
                     </table>-->
 
-                    <br>
-
                     <div>
                         <!--href="bookingConfirmed.html" -->
                         <a id="SubmitBooking" data-role="button" data-mini="true" data-transition="flow" data-theme="c">OK
@@ -185,9 +181,6 @@
                         </a>
 
                     </div>
-                </li>
-                <li>
-                    
                 </li>
             </ul>
         </div>
