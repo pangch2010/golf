@@ -200,8 +200,8 @@ $(document).on('pagebeforeshow', function () {
         var timeDisplay = value.split(",");
         $("#Inside-Course").html(course);
         $("#Inside-DateTime").html(date);
-        $("#Inside-Time").html(timeDisplay[0] + " [ " + time + " ]");
-        $("#Inside-Hole").html(hole + " Holes");
+        $("#Inside-Time").html(timeDisplay[0] + " " + time);
+        $("#Inside-Hole").html(hole);
         $("#popup_Booking").popup("open");
     });
 });

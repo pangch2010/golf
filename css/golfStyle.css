@@ -715,18 +715,19 @@ input[type=radio] {
 	width:100%;
 }
 @media only screen and (max-width : 1280px) {
-.no-booking{
-	background-color:rgba(0,0,0,.40) !important;
-	color:#fff;
-	font-size:10vm;
-	text-align:center;
-	padding-top:15%;
-	padding-bottom:15%;
-	margin-top:10%;
-	margin-bottom:10%;
-	position:absolute;
-	width:100%;
-	.ui-page-theme-a .morning .ui-btn-active {min-width:220px; font-size:14px;}
+    .no-booking {
+        background-color: rgba(0,0,0,.40) !important;
+        color: #fff;
+        font-size: 10vm;
+        text-align: center;
+        padding-top: 15%;
+        padding-bottom: 15%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        position: absolute;
+        width: 100%;
+    }
+.ui-page-theme-a .morning .ui-btn-active {min-width:220px; font-size:14px;}
 .ui-page-theme-a .morning .ui-radio-off {min-width:220px; font-size:14px;}
 .ui-page-theme-a .noon .ui-btn-active {min-width:220px; font-size:14px;}
 .ui-page-theme-a .noon .ui-radio-off{min-width:220px; font-size:14px;}
@@ -800,7 +801,9 @@ padding:14px 10px 14px 32px; color:#FF0; text-shadow:none; float:left;}
 -moz-border-radius: 8px !important;
 border-radius: 8px !important;
 text-align:center; 
-padding:14px 10px 14px 32px;text-shadow:none;}
+padding:14px 10px 14px 32px;text-shadow:none;
+
+	}
 
 
 .no-booking{
@@ -829,4 +832,7 @@ padding:14px 10px 14px 32px;text-shadow:none;}
 
 input[type=radio] {
     opacity: 0 !important;
+}
+.BookingIcon {
+    width:10vw;
 }
