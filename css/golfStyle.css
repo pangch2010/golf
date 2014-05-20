@@ -735,6 +735,7 @@ input[type=radio] {
 .ui-page-theme-a .night .ui-radio-off{min-width:220px; font-size:14px;}
 .ui-page-theme-a .hole .ui-btn-active {min-width:320px; font-size:14px;}
 .ui-page-theme-a .hole .ui-radio-off{min-width:320px; font-size:14px;}
+.BookingIcon {width:15vw;}
 }
 
 @media only screen and (max-width : 768px) {
@@ -759,7 +760,7 @@ input[type=radio] {
 .ui-page-theme-a .night .ui-radio-off{min-width:220px; font-size:14px;}
 .ui-page-theme-a .hole .ui-btn-active {min-width:320px; font-size:14px;}
 .ui-page-theme-a .hole .ui-radio-off{min-width:320px; font-size:14px;}
-
+.BookingIcon {width:15vw;}
 }
 
 @media only screen and (max-width : 640px) {
@@ -772,6 +773,7 @@ input[type=radio] {
 .ui-page-theme-a .night .ui-radio-off{min-width:174px; font-size:14px;}
 .ui-page-theme-a .hole .ui-btn-active {min-width:251px; font-size:14px;}
 .ui-page-theme-a .hole .ui-radio-off{min-width:251px; font-size:14px;}
+.BookingIcon {width:10vw;}
 }
 
 @media only screen and (max-width : 560px) {
@@ -783,6 +785,7 @@ input[type=radio] {
 .ui-page-theme-a .night .ui-radio-off{min-width:118px; font-size:14px;}
 .ui-page-theme-a .hole .ui-btn-active {min-width:168px; font-size:14px;}
 .ui-page-theme-a .hole .ui-radio-off{min-width:168px; font-size:14px;}
+.BookingIcon {width:10vw;}
 }
 
 @media only screen and (max-width : 460px) {
@@ -827,12 +830,10 @@ padding:14px 10px 14px 32px;text-shadow:none;
 .ui-page-theme-a .night .ui-radio-off{min-width:60px; font-size:12px;}
 .ui-page-theme-a .hole .ui-btn-active {min-width:80px; font-size:12px;}
 .ui-page-theme-a .hole .ui-radio-off{min-width:80px; font-size:12px;}
+.BookingIcon {width:10vw;}
 }
 
 
 input[type=radio] {
     opacity: 0 !important;
-}
-.BookingIcon {
-    width:10vw;
 }
