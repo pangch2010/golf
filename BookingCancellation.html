@@ -11,7 +11,7 @@
     <script src="lib/jquery.mobile-1.4.2.min.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
     <link rel="stylesheet" href="css/GolfNewStyle.min.css" />
-    <link rel="stylesheet" href="css/golfStyle.css">
+    
     <script src="js/main.js"></script>
     <script src="js/BookingCancellation.js"></script>
 
@@ -19,15 +19,18 @@
 <body>
     <div data-role="page" id="page1">
 
-        <div data-role="header" data-theme="d">
+        <div data-role="header" data-theme="d" data-position="fixed">
+            <img src="images/menu_bar_icon.png" class="btnMenu btnMenu_Click" />
             <h1>Booking</h1>
-            <img src="images/menu-icon.png" class="btnMenu btnMenu_Click" />
         </div>
 
-        <div data-role="content" style="padding:0;">
+        <div id="content" data-role="content">
 
             <div id="wrapper">
 
+<!--                <img src="images/cross.png" class="deleteIcon btnCancelBooking" />
+                <img src="images/date.png" class="cancellationIcon" />
+                <id>Testing</id>-->
             </div>
         </div>
 
@@ -50,6 +53,21 @@
 
             </div>
         </div>
+
+        <div data-role="popup" id="CancelSuccess" data-overlay-theme="b" data-theme="a" data-dismissible="false">
+            <div role="main" class="ui-content">
+                <h3>Booking</h3>
+
+
+                <p class="ui-title">Booking cancellation has been done.</p>                
+                <br />
+
+                <a id="cancelOK" data-role="button" data-mini="true" data-transition="flow" data-theme="e" data-rel="back">OK
+                </a>
+
+            </div>
+        </div>
     </div>
+    <link rel="stylesheet" href="css/golfStyle.css">
 </body>
 </html>

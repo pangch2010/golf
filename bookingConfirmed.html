@@ -16,9 +16,9 @@
 <body>
     <div data-role="page" id="page1">
 
-        <div data-role="header" data-theme="d">
+        <div data-role="header" data-theme="d" data-position="fixed">
+            <img src="images/menu_bar_icon.png" class="btnMenu btnMenu_Click" />
             <h1>Booking</h1>
-            <img src="images/menu-icon.png" class="btnMenu btnMenu_Click" />
         </div>
 
         <div data-role="content">
@@ -26,38 +26,35 @@
             <script src="js/bookingConfirmed.js"></script>
             
 
-            <br />
-            <br />
-
             <ul data-role="listview" data-inset="true">
                     <li data-role="list-divider" data-theme="b">
-                         <h1 id="bookedClub"></h1>
+                         <h1 id="bookedCourse"></h1>
                     </li>
                     <li data-theme="d">
                         <div class="ui-grid-b center">
                             <br />
                             <div class="ui-block-a">
-                                <img src="images/date.png" class="cancellationIcon" /></div>
+                                <img src="images/date.png" class="confimedIcon" /></div>
                             <div class="ui-block-b">
-                                <img src="images/time.png" class="cancellationIcon" /></div>
+                                <img src="images/time.png" class="confimedIcon" /></div>
                             <div class="ui-block-c">
-                                <img src="images/hole.png" class="cancellationIcon" /></div>
+                                <img src="images/hole.png" class="confimedIcon" /></div>
 
                             <div class="ui-block-a">
-                                 <id id="bookedDate" class="btnLeft"></id>
+                                 <id id="bookedDate"></id>
                             </div>
                             <div class="ui-block-b">
-                                <id id="bookedTime" class="btnLeft"></id>
+                                <id id="bookedTime" ></id>
                             </div>
                             <div class="ui-block-c">
-                                <id id="bookedHole">18 Holes</id>
+                                <id id="bookedHole"></id>
                             </div>
 
                         </div>
                         <br />
                     </li>
                     <li data-role="list-divider" data-theme="b">
-                        <id id="bookedCourse" class="btnLeft"></id>
+                        <label id="bookedComfirmation" class="btnLeft"></label>
                     </li>
                 </ul>
         </div>

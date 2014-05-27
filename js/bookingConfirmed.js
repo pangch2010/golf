@@ -1,35 +1,19 @@
 ﻿function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
 }
-function convertJsonDateTime(data) {
-    var dateString = data;
-    var reggie = /(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})/;
-    var dateArray = reggie.exec(dateString);
-    var dateObject = new Date(
-        (+dateArray[1]),
-        (+dateArray[2]) - 1, // Careful, month starts at 0!
-        (+dateArray[3]),
-        (+dateArray[4]),
-        (+dateArray[5]),
-        (+dateArray[6])
-    );
-    return dateObject;
-}
-function formatAMPM(date) {
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? 'pm' : 'am';
-    var hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    strTime = hours + ':' + minutes + ' ' + ampm;
-    return strTime;
-}
 $(document).one('pagebeforeshow', function (event, data) {
 
     $(document).off('click', '.btnMenu_Click').on('click', '.btnMenu_Click', function (e) {
         window.location.href = "booking_menu.html";
     });
+    var weekday = new Array(7);
+    weekday[0] = "SUN";
+    weekday[1] = "MON";
+    weekday[2] = "TUE";
+    weekday[3] = "WED";
+    weekday[4] = "THU";
+    weekday[5] = "FRI";
+    weekday[6] = "SAT";
 
     var parameters = getURLParameter("BookingID");
     $.ajax({
@@ -44,16 +28,19 @@ $(document).one('pagebeforeshow', function (event, data) {
             RecordStatus = Data.RecordStatus;
             FlightDateTime = new Date(convertJsonDateTime(Data.FlightDateTime));
             Course = Data.Course;
+            comfirmationID = Data.ComfirmationID;
             $('#bookedClub').html("");
             $("#bookedClub").append(Club);
             $('#bookedCourse').html("");
             $("#bookedCourse").append(Course);
             $('#bookedDate').html("");
-            $("#bookedDate").append(FlightDateTime.getFullYear() + "-" + (FlightDateTime.getMonth() + 1) + "-" + FlightDateTime.getDate());
+            $("#bookedDate").append(FlightDateTime.getDate() + "/" + (FlightDateTime.getMonth() + 1) + "/" + FlightDateTime.getFullYear() + "(" + weekday[FlightDateTime.getDay()] + ")");
             $('#bookedTime').html("");
             $("#bookedTime").append(formatAMPM(FlightDateTime));
             $('#bookedHole').html("");
-            $("#bookedHole").append(Data.Holes);
+            $("#bookedHole").append(Data.Holes + " Holes");
+            $('#bookedComfirmation').html("");
+            $("#bookedComfirmation").append("Booking ID: " + comfirmationID);
         }
     });
 });

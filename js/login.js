@@ -1,5 +1,5 @@
 ﻿var db = null;
-// var URL_API = "http://localhost:3998";
+//var URL_API = "http://localhost:3998";
 //var SERVER_END_POINT_API = "http://localhost:3998";
 
 $(document).one('pagecreate', function () {
@@ -163,6 +163,7 @@ $(document).one('pagecreate', function () {
             localStorage.setItem("UserID", msg.UserID);
             localStorage.setItem("ClubMemberID", msg.ClubMemberID);
             localStorage.setItem("MembershipNo", msg.MembershipNo);
+            localStorage.setItem("TokenExpiryDate", msg.TokenExpiryDate);
             localStorage.setItem("Token", msg.Token);
             localStorage.setItem("UserName", msg.UserName);
             IsAuthenticated = true;

@@ -385,7 +385,7 @@ html .ui-alt-icon .ui-radio-off:after {
     .ui-page-theme-b .ui-btn.ui-btn-active, html .ui-bar-b .ui-btn.ui-btn-active, html .ui-body-b .ui-btn.ui-btn-active, html body .ui-group-theme-b .ui-btn.ui-btn-active, html head + body .ui-btn.ui-btn-b.ui-btn-active, .ui-page-theme-b .ui-checkbox-on:after, html .ui-bar-b .ui-checkbox-on:after, html .ui-body-b .ui-checkbox-on:after, html body .ui-group-theme-b .ui-checkbox-on:after, .ui-btn.ui-checkbox-on.ui-btn-b:after, .ui-page-theme-b .ui-flipswitch-active, html .ui-bar-b .ui-flipswitch-active, html .ui-body-b .ui-flipswitch-active, html body .ui-group-theme-b .ui-flipswitch-active, html body .ui-flipswitch.ui-bar-b.ui-flipswitch-active, .ui-page-theme-b .ui-slider-track .ui-btn-active, html .ui-bar-b .ui-slider-track .ui-btn-active, html .ui-body-b .ui-slider-track .ui-btn-active, html body .ui-group-theme-b .ui-slider-track .ui-btn-active, html body div.ui-slider-track.ui-body-b .ui-btn-active {
         background-color: rgba(0,0,0,.68);
         /*border-color: #8a8212;*/
-        color: #000000;
+        /*color: #000000;*/
         text-shadow: 0 1px 0 #eeeeee;
     }
 
@@ -465,7 +465,7 @@ html .ui-alt-icon .ui-radio-off:after {
     .ui-page-theme-c .ui-btn:active, html .ui-bar-c .ui-btn:active, html .ui-body-c .ui-btn:active, html body .ui-group-theme-c .ui-btn:active, html head + body .ui-btn.ui-btn-c:active {
         background-color: #a1e348;
         border-color: #587c27;
-        color: #000000;
+        /*color: #000000;*/
         text-shadow: 0 1px 0 #eeeeee;
     }
 
@@ -769,3 +769,93 @@ html .ui-alt-icon .ui-radio-off:after {
     outline-style: auto;
 }
 
+
+/*=======================================My Css=============================*/
+.ui-page-theme-a .morning .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:11px;
+padding:20px 10px;
+background: transparent url('../images/icon/morning-over.png') center 10px no-repeat; padding:54px 10px 20px; color:#FF0; text-shadow:none; min-width:55px;}
+	
+	.ui-page-theme-a .morning .ui-radio-off{background: transparent url('../images/icon/morning.png') center 10px no-repeat;border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:11px;
+padding:54px 10px 20px; text-shadow:none; min-width:55px;}
+
+.ui-page-theme-a .noon .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:11px;
+padding:20px 10px;
+background: transparent url('../images/icon/noon-over.png') center 10px no-repeat; padding:54px 10px 20px; color:#FF0; text-shadow:none; min-width:55px;}
+	
+	.ui-page-theme-a .noon .ui-radio-off{background: transparent url('../images/icon/noon.png') center 10px no-repeat;border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:11px;
+padding:54px 10px 20px; text-shadow:none; min-width:55px;}
+
+.ui-page-theme-a .night .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:11px;
+padding:20px 10px;
+background: transparent url('../images/icon/night-over.png') center 10px no-repeat; padding:54px 10px 20px; color:#FF0; text-shadow:none; min-width:55px;}
+	
+	.ui-page-theme-a .night .ui-radio-off{background: transparent url('../images/icon/night.png') center 10px no-repeat;border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:11px;
+padding:54px 10px 20px; text-shadow:none;min-width:55px;}
+
+.ui-page-theme-a .hole .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:11px;
+background: transparent url('../images/icon/hole-hover.png') 4px 6px no-repeat; background-size:30px; 
+padding:14px 10px 14px 32px; color:#FF0; text-shadow:none; min-width:40px;}
+	
+	.ui-page-theme-a .hole .ui-radio-off{background: transparent url('../images/icon/hole.png') 4px 6px no-repeat;  background-size:30px; border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:11px;
+padding:14px 10px 14px 32px;text-shadow:none; min-width:40px; }
+
+
+@media only screen and (max-width : 360px) {
+	.ui-page-theme-a .hole .ui-btn-active {border-color:#3388cc ; border:none;color:#ffffff ; margin:2px;
+    background-color:rgba(0,0,0,.70) !important;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+text-align:center; font-size:11px;
+background: transparent url('../images/icon/hole-hover.png') 4px 6px no-repeat; background-size:30px; 
+padding:14px 10px 14px 32px; color:#FF0; text-shadow:none; min-width:40px; float:left;}
+	
+	.ui-page-theme-a .hole .ui-radio-off{background: transparent url('../images/icon/hole.png') 4px 6px no-repeat;  background-size:30px; border-color:#3388cc ; border:none;color:#ffffff ; margin:2px; 
+    background-color:rgba(0,0,0,.40) !important;
+	-webkit-border-radius: 8px !important;
+-moz-border-radius: 8px !important;
+border-radius: 8px !important;
+text-align:center; font-size:11px;
+padding:14px 10px 14px 32px;text-shadow:none; min-width:40px;}
+.dline{display:none;}
+}

@@ -7,19 +7,20 @@ var ClientcourseID;
 var membershipNo;
 var niteNineHole;
 var clubMemberID;
+var weekday = new Array(7);
+weekday[0] = "SUN";
+weekday[1] = "MON";
+weekday[2] = "TUE";
+weekday[3] = "WED";
+weekday[4] = "THU";
+weekday[5] = "FRI";
+weekday[6] = "SAT";
+
 function GenerateDateDropDownList() {
     var nowDate;
-    
-    var weekday = new Array(7);
     var month = new Array(14);
 
-    weekday[0] = "SUN";
-    weekday[1] = "MON";
-    weekday[2] = "TUE";
-    weekday[3] = "WED";
-    weekday[4] = "THU";
-    weekday[5] = "FRI";
-    weekday[6] = "SAT";
+
     var monthName = new Array(12);
     monthName[0] = "January";
     monthName[1] = "February";
@@ -52,8 +53,8 @@ function GenerateDateDropDownList() {
 
         var date = displayDate.getFullYear() + "-" + (displayDate.getMonth() + 1) + "-" + displayDate.getDate();
         var DropdownlistDate = displayDate.getDate() + "/" + (displayDate.getMonth() + 1) + "/" + displayDate.getFullYear() + " " + weekday[displayDate.getDay()];
-         
-        $("#dropDate").append("<option Date=" + date + ">" + DropdownlistDate + "</option>");
+        var DropdownlistDate = displayDate.getDate() + "/" + (displayDate.getMonth() + 1) + "/" + displayDate.getFullYear() + "(" + weekday[displayDate.getDay()]+")";
+        $("#dropDate").append("<option Date=" + date + " DisplayDate=" + DropdownlistDate + ">" + DropdownlistDate + "</option>");
     }
     $('#dropDate').selectmenu('refresh', true);
 
@@ -74,6 +75,7 @@ function GenerateCourseDropdownList() {
             $('#dropCourse').selectmenu('refresh', true);
         },
         fail: function (jqXHR, exception) {
+
             alert(exception);
         }
 
@@ -110,11 +112,13 @@ $(document).on('pagebeforeshow', function () {
                     $.mobile.changePage("bookingConfirmed.html", { data: { "BookingID": result } });
                 }
                 else {
-                    alert("Error When Booking, Please Select Another Date and Time");
+                    $("#popup_ErrMsg").popup("open");
+                    $("#ErroMessage").html("Error When Booking, Please Select Another Date and Time");
                 }
             },
             fail: function (jqXHR, exception) {
-                alert(exception);
+                $("#popup_ErrMsg").popup("open");
+                $("#ErroMessage").html(exception);
             }
         });
     });
@@ -169,7 +173,8 @@ $(document).on('pagebeforeshow', function () {
                
             },
             error: function () {
-                alert("Error On get Data From Server");
+                $("#popup_ErrMsg").popup("open");
+                $("#ErroMessage").html("Error On get Data From Server");
             }
         });
         }
@@ -188,20 +193,49 @@ $(document).on('pagebeforeshow', function () {
         var Check9Hole = $(this).text();
         course = $('#dropCourse :selected').text();
         date = $('#dropDate :selected').attr("date");
+        var DisplayDay = $('#dropDate :selected').attr("DisplayDate");
+
         var datedisplayed = $('#dropDate :selected').text();
         time = $("input[name='radio-time']:checked").attr("value");
         hole = $("input[name='radio-hole']:checked").attr("value");
-        for (var i = 0; i <= niteNineHole.length; i++) {
-            if (Check9Hole == niteNineHole[i]) {
-                alert("Only 9 Hole Available for the time: " + Check9Hole);
-                hole = 9;
+        if (hole ==18) {
+            for (var i = 0; i <= niteNineHole.length; i++) {
+                if (Check9Hole == niteNineHole[i]) {
+                    $("#popup_ErrMsg").popup("open");
+                    $("#ErroMessage").html("Only 9 Hole Available for the time: " + Check9Hole);
+                    hole = 9;
+                }
             }
         }
         var timeDisplay = value.split(",");
         $("#Inside-Course").html(course);
-        $("#Inside-DateTime").html(date);
+        //$("#Inside-DateTime").html(DisplayDay.getDate() + "/" + (DisplayDay.getMonth() + 1) + "/" + DisplayDay.getFullYear() + " (" + weekday[DisplayDay.getDay()]+")");
+        $("#Inside-DateTime").html(DisplayDay);
         $("#Inside-Time").html(timeDisplay[0] + " " + time);
-        $("#Inside-Hole").html(hole);
+        $("#Inside-Hole").html(hole +" "+"Holes");
         $("#popup_Booking").popup("open");
+        
+    });
+    $("#popup_Booking").popup({
+        afteropen: function (event, ui) {
+            $('#popup_Booking-screen').css({
+                height: '1000px'
+            });
+            $('body').css({
+                overflow: 'hidden',
+                width:'100%'
+            });
+            $('#page1').css({
+                overflow: 'hidden'
+            });
+        },
+        afterclose: function (event, ui) {
+            $('body').css({
+                overflow: 'auto'
+            });
+            $('#page1').css({
+                overflow: 'auto'
+            });
+        }
     });
 });
