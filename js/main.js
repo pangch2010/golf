@@ -51,11 +51,10 @@ $(document).on({
     }
 });
 
-if (localStorage.getItem("Token") != "")
-{
+if (localStorage.getItem("Token") != "") {
     $.ajaxSetup({
-    headers: {
-                "Authorization": "Bearer " + localStorage.getItem("Token")
-}
-});
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("Token")
+        }
+    });
 }
